@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>春节祝福语生成器</title>
+    <style>
+        body {
+            font-family: 'Microsoft YaHei', sans-serif;
+            background-color: #f8f3e8;
+            color: #333;
+            text-align: center;
+            padding: 20px;
+        }
+        h1 {
+            font-size: 24px;
+            color: #d32f2f;
+            margin-bottom: 20px;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .output {
+            margin: 20px 0;
+            padding: 15px;
+            background-color: #f0f0f0;
+            border-radius: 5px;
+            font-size: 16px;
+            line-height: 1.6;
+        }
+        .btn {
+            padding: 10px 20px;
+            font-size: 16px;
+            color: #fff;
+            background-color: #d32f2f;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .btn:hover {
+            background-color: #b71c1c;
+        }
+        .copy-btn {
+            margin-top: 10px;
+            background-color: #4caf50;
+        }
+        .copy-btn:hover {
+            background-color: #388e3c;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>春节祝福语生成器</h1>
+        <button class="btn" onclick="generateBlessing()">生成祝福语</button>
+        <div class="output" id="output">点击按钮生成祝福语</div>
+        <button class="btn copy-btn" onclick="copyToClipboard()">复制祝福语</button>
+    </div>
+
+    <script>
+        // 祝福语库
+        const blessings = [
+            "新春快乐，万事如意，愿您和家人幸福安康！",
+            "祝您新年大吉，财源广进，事业蒸蒸日上！",
+            "愿新的一年，平安喜乐，心想事成，阖家幸福！",
+            "祝您新春愉快，身体健康，笑口常开！",
+            "新年新气象，愿您事业顺利，生活美满！",
+            "祝您新年好运连连，福气满满，幸福常伴！",
+            "愿您在新的一年里，步步高升，万事顺心！",
+            "祝您春节快乐，阖家团圆，幸福美满！",
+            "新年到，愿您福星高照，吉祥如意！",
+            "祝您新年快乐，心想事成，万事如意！",
+            "愿您在新的一年里，财源滚滚，福气满满！",
+            "祝您新春吉祥，阖家欢乐，幸福安康！",
+            "愿您新年新气象，事业更上一层楼！",
+            "祝您新年快乐，身体健康，万事顺心！",
+            "愿您在新的一年里，笑口常开，心想事成！",
+            "祝您新年大吉，福星高照，好运连连！",
+            "愿您在新的一年里，平安健康，幸福美满！",
+            "祝您新春愉快，阖家幸福，万事如意！",
+            "愿您新年新气象，生活美满，事业有成！",
+            "祝您新年快乐，福气满满，吉祥如意！",
+            "愿您在新的一年里，心想事成，万事顺心！",
+            "祝您新春大吉，财源广进，幸福安康！",
+            "愿您新年新气象，事业顺利，生活美满！",
+            "祝您新年快乐，阖家幸福，万事如意！",
+            "愿您在新的一年里，福星高照，吉祥如意！"
+        ];
+
+        // 生成祝福语
+        function generateBlessing() {
+            const output = document.getElementById('output');
+            const randomIndex = Math.floor(Math.random() * blessings.length);
+            output.textContent = blessings[randomIndex];
+        }
+
+        // 复制祝福语
+        function copyToClipboard() {
+            const output = document.getElementById('output');
+            const text = output.textContent;
+            navigator.clipboard.writeText(text).then(() => {
+                alert('祝福语已复制到剪贴板！');
+            }).catch(() => {
+                alert('复制失败，请手动复制。');
+            });
+        }
+    </script>
+</body>
+</html>
